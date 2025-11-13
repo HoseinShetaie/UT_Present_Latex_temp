@@ -1,0 +1,30 @@
+\section{PINN-Vlasov}
+
+\begin{frame}{PINNs for solving the Vlasov–Poisson equation}
+    \begin{center}
+        \begin{figure}
+            \includegraphics[width= 0.95\textwidth]{images/mlstad03d5f2_hr.jpg}
+        \end{figure}
+    \end{center}
+\end{frame}
+
+
+\begin{frame}{Forward PINN-Vlasov}
+    \begin{center}
+            \begin{equation*}L = {L_{{\text{eq}}}} + {L_{{\text{IC}}}} + {L_{{\text{BC}}}}\end{equation*}
+				\pause
+            \begin{align*} {L_{{\text{eq}}}} & = \frac{1}{{{N_{{\text{eq}}}}}}\sum\limits_{n = 1}^{{N_{{\text{eq}}}}} {{\left[ {{{\left( {\frac{{\partial f}}{{\partial t}} + v\frac{{\partial f}}{{\partial x}} + \frac{{qE}}{m}\frac{{\partial f}}{{\partial v}}} \right)}^2} + {{\left( {\frac{{\partial E}}{{\partial x}} - \int\limits_{ - \infty }^{ + \infty } f{\text{d}}v + 1} \right)}^2}} \right]}_n} \nonumber\\ {L_{{\text{IC}}}} & = \frac{1}{{{N_{{\text{IC}}}}}}\sum\limits_{n = 1}^{{N_{{\text{IC}}}}} {{\left[ {{{\left( {f_{{\text{IC}}}^{\,\,\text{r}} - f_{{\text{IC}}}^{\,\,\text{t}}} \right)}^2}} \right]}_n} \nonumber\\ {L_{{\text{BC}}}} & = \frac{1}{{{N_{{\text{BC}}}}}}\sum\limits_{n = 1}^{{N_{{\text{BC}}}}} {{\left[ {{{\left( {f_{{\text{BC}}}^{\,\,\text{r}} - f_{{\text{BC}}}^{\,\,\text{t}}} \right)}^2}} \right]}_n} \end{align*}
+			
+    \end{center}
+\end{frame}
+
+\begin{frame}{Inverse PINN-Vlasov}
+    \begin{center}
+        \begin{equation*}L = {L^{^{\prime}}_{{\text{eq}}}} + {L_{\text{f}}}\end{equation*}
+				\pause
+        \begin{align*} {{L}^{^{\prime}}_{{\text{eq}}}} & = \frac{1}{{{{N}^{^{\prime}}_{{\text{eq}}}}}}\sum\limits_{n = 1}^{{{N}^{^{\prime}}_{{\text{eq}}}}} {{\left[ {{{\left( {\frac{{\partial f}}{{\partial t}} + {\lambda _1}v\frac{{\partial f}}{{\partial x}} + {\lambda _2}E\frac{{\partial f}}{{\partial v}}} \right)}^2} + {{\left( {\frac{{\partial E}}{{\partial x}} - \int\limits_{ - \infty }^{ + \infty } f{\text{d}}v + 1} \right)}^2}} \right]}_n} \nonumber\\ {L_{\text{f}}} & = \frac{1}{{{N_{\text{f}}}}}\sum\limits_{n = 1}^{{N_{\text{f}}}} {{\left[ {{{\left( {{f^{\,\,\text{r}}} - {f^{\,\,\text{t}}}} \right)}^2}} \right]}_n} \end{align*}
+			\pause	
+        \begin{equation*}\begin{gathered} {\lambda _1} = 1.0 \hfill \\ {\lambda _2} = \frac{q}{m} = \frac{{ - 1.0}}{{1.0}} = - 1.0 \hfill \\ \end{gathered} \end{equation*}
+			
+    \end{center}
+\end{frame}

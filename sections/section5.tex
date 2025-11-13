@@ -1,0 +1,51 @@
+\section{Conclusion}
+
+\begin{frame}{Challenges}
+\begin{itemize}
+    \item  \textbf{Electric field provided to the model in forward problem}  
+    \quad In the paper, the electric field $E(x,t)$ was directly supplied to the PINN during forward training. this may limit the model's ability to infer $E$ self-consistently from the physics.
+
+    \vspace{0.3cm}
+    \item  \textbf{Integration in the Poisson equation}  
+    \quad The Poisson term $\displaystyle \frac{\partial E}{\partial x} = \int f\,dv - 1$ requires numerical integration.  
+    The choice of integration method (e.g., trapezoidal rule) affects stability and accuracy.
+
+    \vspace{0.3cm}
+    \item  \textbf{Unknown weighting of loss components}  
+    \quad The relative importance of each loss term ($L_{\text{eq}}, L_{\text{IC}}, L_{\text{BC}}$)  
+    is not clearly defined-improper weighting can hinder convergence or bias the network.
+
+    \vspace{0.3cm}
+    \item  \textbf{Sampling and resampling strategy}  
+    \quad The performance strongly depends on how training points are chosen in $(t,x,v)$.  
+    Optimal sampling frequency and resampling intervals remain open research questions.
+\end{itemize}
+\pause
+\begin{block}{Observation}
+Balancing physical accuracy, numerical stability, and training efficiency  
+is still the main challenge for PINN-Vlasov frameworks.
+\end{block}
+\end{frame}
+
+\begin{frame}{Conclusion}
+\begin{itemize}
+    \item \textbf{Physics-Informed Neural Networks (PINNs)} bridge the gap between deep learning and physical modeling.
+    \item By embedding \textbf{governing PDEs} into the loss function, they ensure physical consistency.
+    \item Demonstrated capability for solving both \textbf{forward and inverse problems} with high interpretability.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Future Work}
+    \begin{itemize}
+    \item  \textbf{Improving computational efficiency} — faster training for complex PDEs.
+    \item  \textbf{Adaptive sampling} — dynamic selection of collocation points.
+    \item  \textbf{Multi-physics extension} — include magnetic fields, collisions, higher dimensions (2D/3D).
+
+\end{itemize}
+\vspace{0.5cm}
+\pause
+\centering
+\textit{Future PINNs = Physics + Data + Efficiency → Scientific AI.}
+\end{frame}
+
+\backmatter

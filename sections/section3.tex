@@ -1,0 +1,91 @@
+\section{Two Stream Instability}
+
+\begin{frame}{two stream instability}
+    \begin{center}
+        \begin{figure}
+            \includegraphics[width=0.75\textwidth]{images/dis/distribution_10_000.png}
+        \end{figure}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Vlasov-Poisson equation}
+Vlasov-Poisson equation:
+
+        \begin{equation*}\begin{gathered} \frac{{\partial f}}{{\partial t}} + {\mathbf{v}} \cdot \nabla f + \frac{q}{m}\left({\mathbf{E}} + {\mathbf{v}} \times {\mathbf{B}}\right) \cdot \frac{{\partial f}}{{\partial {\mathbf{v}}}} = 0 \\ \nabla \cdot {\mathbf{E}}{\,\boldsymbol{ = }}\,\frac{\rho }{\varepsilon } \\ \end{gathered} \end{equation*}
+        \pause
+Density:	
+
+        \begin{equation*}\begin{gathered} \rho = e(n_e-Z_i n_i)  \\ {n_{\text{e}}} = \int\limits_{ - \infty }^{ + \infty } f\left(t,x,v\right){\text{d}}v \\ \end{gathered} \end{equation*}
+        \pause
+1D Vlasov-Poisson equation:
+
+			\begin{align*} & \frac{{\partial f}}{{\partial t}} + v\frac{{\partial f}}{{\partial x}} + \frac{{eE}}{{{m_{\text{e}}}}}\frac{{\partial f}}{{\partial v}} = 0 \nonumber\\ & \frac{{\partial E}}{{\partial x}} = \frac{{e\left({n_{\text{e}}} - {n_i}\right)}}{\varepsilon }\end{align*}
+			
+
+\end{frame}
+
+\begin{frame}{Vlasov-Poisson equation}
+Normalization:
+    \begin{equation*}x = \frac{{{x^*}}}{{{\lambda _{\text{D}}}}},\,v = \frac{{{v^*}}}{{{v_{{\text{th}}}}}},\,t = \frac{{{t^*}}}{{\omega _{\text{p}}^{ - 1}}},\,m = \frac{{{m^*}}}{{{m_{\text{e}}}}},\,q = \frac{{{q^*}}}{e},\,E = {E^*}\frac{{e{\lambda _{\text{D}}}}}{{k{T_{\text{e}}}}}\end{equation*}
+
+\pause
+Normalized 1D Vlasov-Poisson equation:
+		
+	\begin{align*}
+         & \frac{{\partial f}}{{\partial t}} + v\frac{{\partial f}}{{\partial x}} - {\textrm E}\frac{{\partial f}}{{\partial v}} = 0 \nonumber\\ & \frac{{\partial {\textrm E}}}{{\partial x}} = \int\limits_{ - \infty }^{ + \infty } f\left(t,x,v\right){\text{d}}v - 1
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}{PIC simulation}
+    \pause
+    \begin{center}
+        \begin{tikzpicture}[>=stealth, thick, node distance=2.5cm]
+
+% ---------- Styles ----------
+\tikzstyle{block} = [rectangle, draw, rounded corners=2pt,
+                     text width=5cm, align=center, minimum height=1.2cm]
+
+% ---------- Nodes ----------
+\node[block] (motion) {Integration of equations of motion, moving particles\\[2pt]
+$F_p \rightarrow v_p \rightarrow x_p$};
+
+\node[block, right=of motion] (weight1) {Weighting\\[2pt] $(x,v)_p \rightarrow (\rho, J)_g$};
+
+\node[block, below=of weight1] (field) {Integration of field equations on grid\\[2pt]
+$(\rho, J)_g \rightarrow (E,B)_g$};
+
+\node[block, left=of field] (weight2) {Weighting\\[2pt] $(E,B)_g \rightarrow F_p$};
+
+% % ---------- Central delta t circle ----------
+% \node[circle, draw, minimum size=0.8cm, inner sep=0pt, font=\Large] (dt) at ($(motion)!0.5!(field)$) {$\Delta t$};
+
+% ---------- Arrows ----------
+\draw[->] (motion) -- (weight1);
+\draw[->] (weight1) --  (field);
+\draw[->] (field) -- (weight2);
+\draw[->] (weight2) --  (motion);
+
+% % ---------- Circular arrow around Δt ----------
+% \draw[->, thick] (1.3,-0.2) arc[start angle=-10, end angle=250, radius=1.0cm];
+
+\end{tikzpicture}
+    \end{center}
+
+\end{frame}
+
+\begin{frame}{two stream instability}
+    \begin{center}
+        \begin{figure}
+            \includegraphics[width=0.75\textwidth]{images/dis/distribution_10_000.png}
+        \end{figure}
+    \end{center}
+\end{frame}
+
+% \begin{frame}{two stream instability}
+%     \begin{center}
+%         \begin{figure}
+%             \animategraphics[loop,autoplay,width=0.75\linewidth]{15}{images/dis/distribution_10_}{000}{201}
+%         \end{figure}
+%     \end{center}
+% \end{frame}
