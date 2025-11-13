@@ -38,22 +38,7 @@ This template is adapted from the SINTEF Beamer theme and customized for my pres
 
 ---
 
-## 📁 Project Structure  
-## 📁 ساختار پروژه
 
-```
-UT_Present_Latex_temp/
-│
-├── main.tex               # Main presentation file / فایل اصلی ارائه
-├── customize.tex          # User overrides / تنظیمات و سفارشی‌سازی
-├── sintefbeamer.cls       # Custom beamer class / کلاس بیمر
-├── beamerthemesintef.sty  # Theme structure / ساختار تم
-├── sintefcolor.sty        # Color definitions / رنگ‌ها
-├── images/                # Figures & backgrounds / تصاویر و بک‌گراند
-└── README.md              # Documentation
-```
-
----
 
 ## ▶️ How to Compile  
 ## ▶️ نحوه کامپایل
@@ -166,5 +151,6 @@ University of Tehran
 
 Feel free to fork, open issues, or contribute!  
 در صورت تمایل پروژه را Fork کنید و Pull Request بدهید!
+
 
 
