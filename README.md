@@ -146,14 +146,6 @@ Libraries loaded:
 
 ---
 
-## 📷 Preview (Optional)  
-## 📷 پیش‌نمایش (اختیاری)
-
-You may add screenshots here.  
-می‌توانید اسکرین‌شات ارائه را اینجا اضافه کنید.
-
----
-
 ## 📝 License  
 ## 📝 لایسنس
 
@@ -174,4 +166,5 @@ University of Tehran
 
 Feel free to fork, open issues, or contribute!  
 در صورت تمایل پروژه را Fork کنید و Pull Request بدهید!
+
 
